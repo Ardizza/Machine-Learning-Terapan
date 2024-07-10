@@ -4,8 +4,8 @@
 Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Deteksi dini dan penanganan yang tepat dapat menyelamatkan banyak nyawa. Menggunakan data medis, kita dapat mengembangkan model machine learning yang mampu memprediksi apakah seorang pasien memiliki penyakit jantung, yang pada akhirnya dapat membantu dokter dalam mengambil keputusan yang lebih baik dan lebih cepat.
 
 ### Mengapa dan bagaimana masalah ini harus diselesaikan:
-Penyakit jantung sering kali tidak menunjukkan gejala awal yang jelas, sehingga banyak kasus baru terdeteksi saat sudah pada tahap lanjut.
-Model prediksi dapat memberikan alat tambahan bagi tenaga medis untuk skrining awal dan pencegahan.
+* Penyakit jantung sering kali tidak menunjukkan gejala awal yang jelas, sehingga banyak kasus baru terdeteksi saat sudah pada tahap lanjut.
+* Model prediksi dapat memberikan alat tambahan bagi tenaga medis untuk screening awal dan pencegahan.
 
 Referensi:
 Penyakit Jantung: Fakta dan Statistik
@@ -13,17 +13,17 @@ Heart Disease UCI Dataset
 
 ## Business Understanding
 ### Problem Statements
-Bagaimana cara memprediksi apakah seorang pasien memiliki penyakit jantung berdasarkan data medis yang tersedia?
-Algoritma machine learning mana yang memberikan hasil prediksi terbaik untuk kasus ini?
+* Bagaimana cara memprediksi apakah seorang pasien memiliki penyakit jantung berdasarkan data medis yang tersedia?
+* Algoritma machine learning mana yang memberikan hasil prediksi terbaik untuk kasus ini?
 
 ### Goals
-Mengembangkan model machine learning yang dapat memprediksi penyakit jantung dengan akurasi tinggi.
-Membandingkan beberapa algoritma untuk menentukan model terbaik.
+* Mengembangkan model machine learning yang dapat memprediksi penyakit jantung dengan akurasi tinggi.
+* Membandingkan beberapa algoritma untuk menentukan model terbaik.
 
 ### Solution Statements
-Menggunakan Logistic Regression sebagai baseline model.
-Membandingkan hasil prediksi dengan algoritma Random Forest.
-Melakukan hyperparameter tuning pada model Random Forest untuk meningkatkan akurasi.
+* Menggunakan Logistic Regression sebagai baseline model.
+* Membandingkan hasil prediksi dengan algoritma Random Forest.
+* Melakukan hyperparameter tuning pada model Random Forest untuk meningkatkan akurasi.
 
 ## Data Understanding
 Dataset yang digunakan adalah Heart Disease UCI dari UCI Machine Learning Repository. Dataset ini berisi 303 sampel dan 14 atribut.
@@ -131,8 +131,8 @@ print(classification_report(y_test, y_pred_best_rf))
 ```
 
 ### Kelebihan dan Kekurangan Algoritma:
-#### Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
-#### Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
+* Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
+* Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
 
 ## Evaluation
 ### Metrik Evaluasi
