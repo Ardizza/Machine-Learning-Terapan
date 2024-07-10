@@ -131,8 +131,8 @@ print(classification_report(y_test, y_pred_best_rf))
 ```
 
 ### Kelebihan dan Kekurangan Algoritma:
-Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
-Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
+#### Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
+#### Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
 
 ## Evaluation
 ### Metrik Evaluasi
