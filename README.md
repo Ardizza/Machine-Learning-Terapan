@@ -1,13 +1,13 @@
 # Laporan Proyek Machine Learning - Rafi Ardizza Fadhillah Setiadi
 ## Domain Proyek
-#### Latar Belakang
+### Latar Belakang
 Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Deteksi dini dan penanganan yang tepat dapat menyelamatkan banyak nyawa. Menggunakan data medis, kita dapat mengembangkan model machine learning yang mampu memprediksi apakah seorang pasien memiliki penyakit jantung, yang pada akhirnya dapat membantu dokter dalam mengambil keputusan yang lebih baik dan lebih cepat.
 
 ### Mengapa dan bagaimana masalah ini harus diselesaikan:
 Penyakit jantung sering kali tidak menunjukkan gejala awal yang jelas, sehingga banyak kasus baru terdeteksi saat sudah pada tahap lanjut.
 Model prediksi dapat memberikan alat tambahan bagi tenaga medis untuk skrining awal dan pencegahan.
-Referensi:
 
+Referensi:
 Penyakit Jantung: Fakta dan Statistik
 Heart Disease UCI Dataset
 
@@ -45,6 +45,7 @@ thal: Thalassemia (1-3).
 target: Diagnosis penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak memiliki penyakit jantung).
 
 ### Exploratory Data Analysis (EDA):
+```
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -60,10 +61,12 @@ plt.show()
 
 sns.pairplot(df, hue='target')
 plt.show()
+```
 
 ## Data Preparation
 ### Data Cleaning
 Mengatasi missing values dan normalisasi data:
+```
 # Tidak ada missing values pada dataset ini
 df.isnull().sum()
 
@@ -76,6 +79,7 @@ df_scaled = scaler.fit_transform(df.drop('target', axis=1))
 # Memisahkan fitur dan label
 X = df_scaled
 y = df['target']
+```
 
 ### Proses Data Preparation:
 Normalisasi dilakukan untuk memastikan semua fitur berada dalam skala yang sama.
@@ -88,6 +92,7 @@ Random Forest sebagai model pembanding.
 
 ### Hyperparameter Tuning
 Melakukan tuning pada Random Forest untuk meningkatkan performa:
+```
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -123,6 +128,7 @@ best_rf = grid_search.best_estimator_
 y_pred_best_rf = best_rf.predict(X_test)
 print("Best Random Forest Accuracy:", accuracy_score(y_test, y_pred_best_rf))
 print(classification_report(y_test, y_pred_best_rf))
+```
 
 ### Kelebihan dan Kekurangan Algoritma:
 Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
