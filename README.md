@@ -22,7 +22,7 @@ Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Det
 * Melakukan hyperparameter tuning pada model Random Forest untuk meningkatkan akurasi.
 
 ## Data Understanding
-Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 303 sampel dan 14 atribut.
+Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 1025 sampel dan 14 atribut.
 
 ### Variabel pada Heart Disease UCI dataset adalah sebagai berikut:
 age: Umur pasien.
