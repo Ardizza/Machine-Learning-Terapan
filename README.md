@@ -53,7 +53,7 @@ Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](ht
    Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
 
 3. Visualisasi Data :
-* Distribusi Variabel Targe
+* Distribusi Variabel Target
 * Pairplot
 * Heatmap Korelasi Fitur
 
