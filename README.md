@@ -76,27 +76,27 @@ Membagi data menjadi training dan testing set adalah langkah untuk memastikan mo
 1. Logistic Regression : 
 Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
 
-* Parameter Utama:
-*    penalty: Regulasi yang digunakan untuk menghindari overfitting.
-*    c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
-*    solver: Algoritma yang digunakan untuk optimisasi.
+#### Parameter Utama:
+* penalty: Regulasi yang digunakan untuk menghindari overfitting.
+* c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
+* solver: Algoritma yang digunakan untuk optimisasi.
 
 2. Random Forest : 
 Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap tree dilatih pada subset data yang berbeda dan hasil akhirnya adalah rata-rata dari hasil setiap tree. Ini membuat Random Forest robust terhadap overfitting dan lebih akurat dibandingkan model individual.
 
-* Parameter Utama:
-*    n_estimators: Jumlah pohon keputusan dalam model Random Forest.
-*    max_depth: Kedalaman maksimum pohon individu.
-*    min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
-*    min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
+#### Parameter Utama:
+* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+* max_depth: Kedalaman maksimum pohon individu.
+* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+* min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
 
 3. Hyperparameter Tuning
 Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
 
-* Parameter Terbaik:
-*    n_estimators: 200
-*    max_depth: 10
-*    min_samples_split: 2
+#### Parameter Terbaik:
+* n_estimators: 200
+* max_depth: 10
+* min_samples_split: 2
 
 ### Kelebihan dan Kekurangan Algoritma:
 * Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
