@@ -150,7 +150,7 @@ Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
 * F1 Score: F1 Score adalah harmonic mean dari precision dan recall, dengan Formula: F1 Score = 2 × (Precision × Recall / Precision + Recall). F1 Score memberikan keseimbangan antara precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
-Berikut adalah hasil proyek berdasarkan metrik evaluasi yang digunakan:
+Berikut adalah akurasi berdasarkan metrik evaluasi yang digunakan:
 * Logistic Regression Accuracy: 0.7951
 * Random Forest Accuracy: 0.9853
 * Best Random Forest Accuracy setelah tuning: 0.9853
