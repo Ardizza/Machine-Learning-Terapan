@@ -24,6 +24,11 @@ Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Det
 ## Data Understanding
 Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 1025 sampel dan 14 atribut.
 
+### Kondisi Dataset:
+* Nilai Null: Dataset ini tidak memiliki nilai null, sehingga tidak diperlukan penanganan missing values.
+* Sebaran Data: Dataset ini terdiri dari 14 atribut yang memiliki sebaran nilai yang bervariasi, seperti umur, tekanan darah, kolesterol, dan lain-lain.
+* Distribusi Kelas: Distribusi kelas pada variabel target cukup seimbang antara pasien yang memiliki penyakit jantung dan yang tidak, sehingga tidak diperlukan penanganan untuk masalah class imbalance.
+
 ### Variabel pada Heart Disease UCI dataset adalah sebagai berikut:
 * age: Umur pasien.
 * sex: Jenis kelamin (1 = laki-laki, 0 = perempuan).
@@ -41,102 +46,57 @@ Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](ht
 * target: Diagnosis penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak memiliki penyakit jantung).
 
 ### Exploratory Data Analysis (EDA):
-Saya memulai dengan melakukan analisis data eksploratif untuk memahami karakteristik data:
-```
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+1. Informasi Dataset
+Menampilkan informasi mengenai tipe data dari masing-masing kolom serta jumlah nilai non-null di setiap kolom.
 
-df = pd.read_csv('https://raw.githubusercontent.com/Ardizza/Machine-Learning-Terapan/main/heart.csv')
-print(df.head())
-print(df.describe())
-print(df.info())
+2. Statistik Deskriptif
+Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
 
-# Visualisasi data
-sns.countplot(x='target', data=df)
-plt.show()
-
-sns.pairplot(df, hue='target')
-plt.show()
-
-```
+3. Visualisasi Data
+* Distribusi Variabel Targe
+* Pairplot
+* Heatmap Korelasi Fitur
 
 ## Data Preparation
 ### Data Cleaning
-Mengatasi missing values dan normalisasi data:
-```
-# Tidak ada missing values pada dataset ini
-df.isnull().sum()
+1. Data Cleaning
+Langkah ini memastikan bahwa dataset bersih dan siap untuk digunakan dalam analisis. Dalam kasus ini, tidak ada nilai yang hilang (missing values) pada dataset, sehingga tidak diperlukan penanganan lebih lanjut untuk nilai yang hilang.
 
-# Normalisasi data
-from sklearn.preprocessing import StandardScaler
+2. Normalisasi Data
+Normalisasi adalah proses penskalaan fitur-fitur sehingga mereka berada dalam skala yang sama. Ini penting karena banyak algoritma pembelajaran mesin bekerja lebih baik ketika fitur-fitur memiliki rentang nilai yang serupa.
 
-scaler = StandardScaler()
-df_scaled = scaler.fit_transform(df.drop('target', axis=1))
+3. Memisahkan Fitur dan Label
+Memisahkan fitur dan label adalah langkah di mana kita memisahkan atribut input (fitur) dari target output (label) yang ingin diprediksi oleh model.
 
-# Memisahkan fitur dan label
-X = df_scaled
-y = df['target']
-
-```
-Normalisasi dilakukan untuk memastikan semua fitur berada dalam skala yang sama. Teknik ini diperlukan agar algoritma machine learning dapat bekerja lebih efisien dan akurat.
+5. Split Data Menjadi Training dan Testing Set
+Membagi data menjadi training dan testing set adalah langkah untuk memastikan model dapat dievaluasi secara objektif. Data training digunakan untuk melatih model, sedangkan data testing digunakan untuk menguji performa model pada data yang belum pernah dilihat sebelumnya.
 
 ## Modeling
-### Model Selection
-Pada tahap ini, dua model utama yang dipilih untuk proyek ini adalah Logistic Regression dan Random Forest. Logistic Regression digunakan sebagai model baseline karena kesederhanaannya dan interpretasinya yang mudah. Random Forest dipilih karena kemampuannya dalam menangani dataset yang kompleks dan memberikan hasil yang lebih akurat.
-
-#### Logistic Regression
+### Proses dan Tahapan:
+1. Logistic Regression
 Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
-```
-from sklearn.linear_model import LogisticRegression
 
-lr = LogisticRegression()
-lr.fit(X_train, y_train)
-y_pred_lr = lr.predict(X_test)
+Parameter Utama:
+** penalty: Regulasi yang digunakan untuk menghindari overfitting.
+** c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
+** solver: Algoritma yang digunakan untuk optimisasi.
 
-```
-Parameter utama yang digunakan:
-* penalty: Regulasi yang digunakan untuk menghindari overfitting.
-* c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
-* solver: Algoritma yang digunakan untuk optimisasi.
-
-#### Random Forest
+2. Random Forest
 Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap tree dilatih pada subset data yang berbeda dan hasil akhirnya adalah rata-rata dari hasil setiap tree. Ini membuat Random Forest robust terhadap overfitting dan lebih akurat dibandingkan model individual.
-```
-from sklearn.ensemble import RandomForestClassifier
 
-rf = RandomForestClassifier()
-rf.fit(X_train, y_train)
-y_pred_rf = rf.predict(X_test)
+Parameter Utama:
+n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+max_depth: Kedalaman maksimum pohon individu.
+min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
 
-```
-Parameter utama yang digunakan:
-* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
-* max_depth: Kedalaman maksimum pohon individu.
-* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
-* min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
-
-#### Hyperparameter Tuning
+3. Hyperparameter Tuning
 Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
-```
-from sklearn.model_selection import GridSearchCV
 
-param_grid = {
-    'n_estimators': [100, 200, 300],
-    'max_depth': [5, 10, 15],
-    'min_samples_split': [2, 5, 10]
-}
-
-grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=3, scoring='accuracy', n_jobs=-1)
-grid_search.fit(X_train, y_train)
-best_rf = grid_search.best_estimator_
-y_pred_best_rf = best_rf.predict(X_test)
-
-```
-Parameter yang di-tuning:
-* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
-* max_depth: Kedalaman maksimum pohon individu.
-* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+Parameter Terbaik:
+* n_estimators: 200
+* max_depth: 10
+* min_samples_split: 2
 
 ### Kelebihan dan Kekurangan Algoritma:
 * Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
@@ -145,12 +105,6 @@ Parameter yang di-tuning:
 ## Evaluation
 ### Metrik Evaluasi
 Untuk kasus klasifikasi ini, metrik evaluasi yang digunakan adalah akurasi, precision, recall, dan F1 score.
-
-### Penjelasan Metrik:
-* Akurasi: Proporsi prediksi benar dari keseluruhan prediksi.
-* Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
-* Recall: Proporsi prediksi positif yang benar dari keseluruhan data aktual positif.
-* F1 Score: Harmonic mean dari precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
 * Logistic Regression Accuracy: 0.79
