@@ -76,7 +76,7 @@ Membagi data menjadi training dan testing set adalah langkah untuk memastikan mo
 1. Logistic Regression
 Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
 
-Parameter Utama:
+* Parameter Utama:
 ** penalty: Regulasi yang digunakan untuk menghindari overfitting.
 ** c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
 ** solver: Algoritma yang digunakan untuk optimisasi.
