@@ -7,10 +7,6 @@ Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Det
 * Penyakit jantung sering kali tidak menunjukkan gejala awal yang jelas, sehingga banyak kasus baru terdeteksi saat sudah pada tahap lanjut.
 * Model prediksi dapat memberikan alat tambahan bagi tenaga medis untuk screening awal dan pencegahan.
 
-Referensi:
-Penyakit Jantung: Fakta dan Statistik
-Heart Disease UCI Dataset
-
 ## Business Understanding
 ### Problem Statements
 * Bagaimana cara memprediksi apakah seorang pasien memiliki penyakit jantung berdasarkan data medis yang tersedia?
@@ -26,7 +22,7 @@ Heart Disease UCI Dataset
 * Melakukan hyperparameter tuning pada model Random Forest untuk meningkatkan akurasi.
 
 ## Data Understanding
-Dataset yang digunakan adalah Heart Disease UCI dari UCI Machine Learning Repository. Dataset ini berisi 303 sampel dan 14 atribut.
+Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 303 sampel dan 14 atribut.
 
 ### Variabel pada Heart Disease UCI dataset adalah sebagai berikut:
 age: Umur pasien.
@@ -139,10 +135,10 @@ print(classification_report(y_test, y_pred_best_rf))
 Untuk kasus klasifikasi ini, metrik evaluasi yang digunakan adalah akurasi, precision, recall, dan F1 score.
 
 ### Penjelasan Metrik:
-Akurasi: Proporsi prediksi benar dari keseluruhan prediksi.
-Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
-Recall: Proporsi prediksi positif yang benar dari keseluruhan data aktual positif.
-F1 Score: Harmonic mean dari precision dan recall.
+* Akurasi: Proporsi prediksi benar dari keseluruhan prediksi.
+* Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
+* Recall: Proporsi prediksi positif yang benar dari keseluruhan data aktual positif.
+* F1 Score: Harmonic mean dari precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
 Logistic Regression Accuracy: 0.85
