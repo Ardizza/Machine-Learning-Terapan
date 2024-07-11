@@ -46,29 +46,29 @@ Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](ht
 * target: Diagnosis penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak memiliki penyakit jantung).
 
 ### Exploratory Data Analysis (EDA):
-1. Informasi Dataset
-Menampilkan informasi mengenai tipe data dari masing-masing kolom serta jumlah nilai non-null di setiap kolom.
+1. Informasi Dataset :
+   Menampilkan informasi mengenai tipe data dari masing-masing kolom serta jumlah nilai non-null di setiap kolom.
 
-2. Statistik Deskriptif
-Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
+2. Statistik Deskriptif :
+   Menampilkan statistik deskriptif dari dataset seperti mean, standar deviasi, nilai minimum dan maksimum, serta kuartil.
 
-3. Visualisasi Data
+3. Visualisasi Data :
 * Distribusi Variabel Targe
 * Pairplot
 * Heatmap Korelasi Fitur
 
 ## Data Preparation
 ### Data Cleaning
-1. Data Cleaning
+1. Data Cleaning :
 Langkah ini memastikan bahwa dataset bersih dan siap untuk digunakan dalam analisis. Dalam kasus ini, tidak ada nilai yang hilang (missing values) pada dataset, sehingga tidak diperlukan penanganan lebih lanjut untuk nilai yang hilang.
 
-2. Normalisasi Data
+2. Normalisasi Data : 
 Normalisasi adalah proses penskalaan fitur-fitur sehingga mereka berada dalam skala yang sama. Ini penting karena banyak algoritma pembelajaran mesin bekerja lebih baik ketika fitur-fitur memiliki rentang nilai yang serupa.
 
-3. Memisahkan Fitur dan Label
+3. Memisahkan Fitur dan Label : 
 Memisahkan fitur dan label adalah langkah di mana kita memisahkan atribut input (fitur) dari target output (label) yang ingin diprediksi oleh model.
 
-5. Split Data Menjadi Training dan Testing Set
+4. Split Data Menjadi Training dan Testing Set : 
 Membagi data menjadi training dan testing set adalah langkah untuk memastikan model dapat dievaluasi secara objektif. Data training digunakan untuk melatih model, sedangkan data testing digunakan untuk menguji performa model pada data yang belum pernah dilihat sebelumnya.
 
 ## Modeling
@@ -76,19 +76,19 @@ Membagi data menjadi training dan testing set adalah langkah untuk memastikan mo
 1. Logistic Regression
 Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
 
-* Parameter Utama:
-** penalty: Regulasi yang digunakan untuk menghindari overfitting.
-** c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
-** solver: Algoritma yang digunakan untuk optimisasi.
+Parameter Utama:
+* penalty: Regulasi yang digunakan untuk menghindari overfitting.
+* c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
+* solver: Algoritma yang digunakan untuk optimisasi.
 
 2. Random Forest
 Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap tree dilatih pada subset data yang berbeda dan hasil akhirnya adalah rata-rata dari hasil setiap tree. Ini membuat Random Forest robust terhadap overfitting dan lebih akurat dibandingkan model individual.
 
 Parameter Utama:
-n_estimators: Jumlah pohon keputusan dalam model Random Forest.
-max_depth: Kedalaman maksimum pohon individu.
-min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
-min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
+* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+* max_depth: Kedalaman maksimum pohon individu.
+* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+* min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
 
 3. Hyperparameter Tuning
 Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
