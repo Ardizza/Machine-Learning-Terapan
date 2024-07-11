@@ -141,9 +141,9 @@ Untuk kasus klasifikasi ini, metrik evaluasi yang digunakan adalah akurasi, prec
 * F1 Score: Harmonic mean dari precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
-Logistic Regression Accuracy: 0.85
-Random Forest Accuracy: 0.88
-Best Random Forest Accuracy setelah tuning: 0.90
+* Logistic Regression Accuracy: 0.79
+* Random Forest Accuracy: 0.98
+* Best Random Forest Accuracy setelah tuning: 0.98
 
 ### Kesimpulan:
 Model Random Forest dengan hyperparameter tuning memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
