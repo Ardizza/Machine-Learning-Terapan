@@ -25,28 +25,29 @@ Penyakit jantung adalah salah satu penyebab utama kematian di seluruh dunia. Det
 Dataset yang digunakan adalah dari Kaggle dengan link [Heart Disease Dataset](https://www.kaggle.com/datasets/data855/heart-disease) Dataset ini berisi 1025 sampel dan 14 atribut.
 
 ### Variabel pada Heart Disease UCI dataset adalah sebagai berikut:
-age: Umur pasien.
-sex: Jenis kelamin (1 = laki-laki, 0 = perempuan).
-cp: Tipe nyeri dada (0-3).
-trestbps: Tekanan darah saat istirahat.
-chol: Kolesterol serum dalam mg/dl.
-fbs: Gula darah puasa > 120 mg/dl (1 = benar, 0 = salah).
-restecg: Hasil elektrokardiografi istirahat (0-2).
-thalach: Detak jantung maksimal yang tercapai.
-exang: Angina akibat olahraga (1 = ya, 0 = tidak).
-oldpeak: Depresi ST yang diinduksi oleh olahraga relatif terhadap istirahat.
-slope: Kemiringan segmen ST latihan puncak (0-2).
-ca: Jumlah pembuluh darah utama (0-4) yang diwarnai oleh fluoroskopi.
-thal: Thalassemia (1-3).
-target: Diagnosis penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak memiliki penyakit jantung).
+* age: Umur pasien.
+* sex: Jenis kelamin (1 = laki-laki, 0 = perempuan).
+* cp: Tipe nyeri dada (0-3).
+* trestbps: Tekanan darah saat istirahat.
+* chol: Kolesterol serum dalam mg/dl.
+* fbs: Gula darah puasa > 120 mg/dl (1 = benar, 0 = salah).
+* restecg: Hasil elektrokardiografi istirahat (0-2).
+* thalach: Detak jantung maksimal yang tercapai.
+* exang: Angina akibat olahraga (1 = ya, 0 = tidak).
+* oldpeak: Depresi ST yang diinduksi oleh olahraga relatif terhadap istirahat.
+* slope: Kemiringan segmen ST latihan puncak (0-2).
+* ca: Jumlah pembuluh darah utama (0-4) yang diwarnai oleh fluoroskopi.
+* thal: Thalassemia (1-3).
+* target: Diagnosis penyakit jantung (1 = memiliki penyakit jantung, 0 = tidak memiliki penyakit jantung).
 
 ### Exploratory Data Analysis (EDA):
+Saya memulai dengan melakukan analisis data eksploratif untuk memahami karakteristik data:
 ```
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('heart.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Ardizza/Machine-Learning-Terapan/main/heart.csv')
 print(df.head())
 print(df.describe())
 print(df.info())
@@ -57,6 +58,7 @@ plt.show()
 
 sns.pairplot(df, hue='target')
 plt.show()
+
 ```
 
 ## Data Preparation
@@ -75,42 +77,50 @@ df_scaled = scaler.fit_transform(df.drop('target', axis=1))
 # Memisahkan fitur dan label
 X = df_scaled
 y = df['target']
-```
 
-### Proses Data Preparation:
-Normalisasi dilakukan untuk memastikan semua fitur berada dalam skala yang sama.
-Teknik ini diperlukan agar algoritma machine learning dapat bekerja lebih efisien dan akurat.
+```
+Normalisasi dilakukan untuk memastikan semua fitur berada dalam skala yang sama. Teknik ini diperlukan agar algoritma machine learning dapat bekerja lebih efisien dan akurat.
 
 ## Modeling
 ### Model Selection
-Logistic Regression sebagai baseline model.
-Random Forest sebagai model pembanding.
+Pada tahap ini, dua model utama yang dipilih untuk proyek ini adalah Logistic Regression dan Random Forest. Logistic Regression digunakan sebagai model baseline karena kesederhanaannya dan interpretasinya yang mudah. Random Forest dipilih karena kemampuannya dalam menangani dataset yang kompleks dan memberikan hasil yang lebih akurat.
 
-### Hyperparameter Tuning
-Melakukan tuning pada Random Forest untuk meningkatkan performa:
+#### Logistic Regression
+Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
 ```
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.model_selection import GridSearchCV
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Logistic Regression
 lr = LogisticRegression()
 lr.fit(X_train, y_train)
 y_pred_lr = lr.predict(X_test)
-print("Logistic Regression Accuracy:", accuracy_score(y_test, y_pred_lr))
 
-# Random Forest
+```
+Parameter utama yang digunakan:
+* penalty: Regulasi yang digunakan untuk menghindari overfitting.
+* c: Inversi dari kekuatan regulasi, dengan nilai yang lebih kecil berarti regulasi yang lebih kuat.
+* solver: Algoritma yang digunakan untuk optimisasi.
+
+#### Random Forest
+Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap tree dilatih pada subset data yang berbeda dan hasil akhirnya adalah rata-rata dari hasil setiap tree. Ini membuat Random Forest robust terhadap overfitting dan lebih akurat dibandingkan model individual.
+```
+from sklearn.ensemble import RandomForestClassifier
+
 rf = RandomForestClassifier()
 rf.fit(X_train, y_train)
 y_pred_rf = rf.predict(X_test)
-print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
-print(classification_report(y_test, y_pred_rf))
 
-# Hyperparameter tuning
+```
+Parameter utama yang digunakan:
+* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+* max_depth: Kedalaman maksimum pohon individu.
+* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+* min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
+
+#### Hyperparameter Tuning
+Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
+```
+from sklearn.model_selection import GridSearchCV
+
 param_grid = {
     'n_estimators': [100, 200, 300],
     'max_depth': [5, 10, 15],
@@ -119,12 +129,14 @@ param_grid = {
 
 grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=3, scoring='accuracy', n_jobs=-1)
 grid_search.fit(X_train, y_train)
-print("Best parameters found:", grid_search.best_params_)
 best_rf = grid_search.best_estimator_
 y_pred_best_rf = best_rf.predict(X_test)
-print("Best Random Forest Accuracy:", accuracy_score(y_test, y_pred_best_rf))
-print(classification_report(y_test, y_pred_best_rf))
+
 ```
+Parameter yang di-tuning:
+* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+* max_depth: Kedalaman maksimum pohon individu.
+* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
 
 ### Kelebihan dan Kekurangan Algoritma:
 * Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
