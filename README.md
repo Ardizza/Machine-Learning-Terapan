@@ -74,7 +74,17 @@ Membagi data menjadi training dan testing set adalah langkah untuk memastikan mo
 ## Modeling
 ### Proses dan Tahapan:
 1. Logistic Regression : 
-Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Model ini cocok digunakan sebagai baseline karena cepat dan mudah diinterpretasi.
+Logistic Regression adalah metode statistik yang digunakan untuk analisis prediktif ketika hasilnya adalah variabel biner. Algoritma ini mengestimasikan probabilitas suatu peristiwa terjadi dengan menggunakan fungsi logit. Logistic Regression cocok digunakan sebagai baseline model karena cepat dan mudah diinterpretasi.
+
+#### Tahapan pembuatan model
+1. Inisialisasi Model:
+Kami menginisialisasi model Logistic Regression tanpa parameter khusus sebagai baseline.
+2. Pelatihan Model:
+Model dilatih menggunakan data training (X_train dan y_train).
+3. Prediksi:
+Model digunakan untuk memprediksi data testing (X_test).
+4. Evaluasi:
+Evaluasi dilakukan menggunakan metrik akurasi dan classification report yang mencakup precision, recall, dan F1 score.
 
 #### Parameter Utama:
 * penalty: Regulasi yang digunakan untuk menghindari overfitting.
@@ -82,7 +92,17 @@ Logistic Regression adalah metode statistik yang digunakan untuk analisis predik
 * solver: Algoritma yang digunakan untuk optimisasi.
 
 2. Random Forest : 
-Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap tree dilatih pada subset data yang berbeda dan hasil akhirnya adalah rata-rata dari hasil setiap tree. Ini membuat Random Forest robust terhadap overfitting dan lebih akurat dibandingkan model individual.
+Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree. Setiap pohon keputusan dilatih pada subset data yang berbeda, dan hasil akhir diambil dari rata-rata prediksi semua pohon. Ini membuat Random Forest lebih robust terhadap overfitting dan sering kali lebih akurat dibandingkan model individual.
+
+#### Tahapan pembuatan model
+1. Inisialisasi Model:
+   Kami menginisialisasi model Random Forest tanpa parameter khusus sebagai baseline.
+2. Pelatihan Model:
+   Model dilatih menggunakan data training (X_train dan y_train).
+3. Prediksi:
+   Model digunakan untuk memprediksi data testing (X_test).
+4. Evaluasi:
+   Evaluasi dilakukan menggunakan metrik akurasi dan classification report.
 
 #### Parameter Utama:
 * n_estimators: Jumlah pohon keputusan dalam model Random Forest.
@@ -90,13 +110,33 @@ Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree
 * min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
 * min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
 
-3. Hyperparameter Tuning
-Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
+3. Hyperparameter Tuning : 
+Untuk meningkatkan performa model Random Forest, kami melakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
 
+#### Parameter yang Dicari:
+* n_estimators: Jumlah pohon keputusan dalam model Random Forest.
+* max_depth: Kedalaman maksimum pohon individu.
+* min_samples_split: Jumlah minimum sampel yang diperlukan untuk membagi node internal.
+
+#### Tahapan Tuning:
+1. Mendefinisikan Parameter Grid:
+   Mendefinisikan parameter grid yang akan diuji.
+2. Inisialisasi dan Pelatihan GridSearchCV:
+   Menginisialisasi GridSearchCV dengan estimator Random Forest dan parameter grid yang telah ditentukan.
+3. Model Terbaik:
+   Setelah GridSearchCV selesai, kami mengambil model terbaik yang ditemukan.
+4. Evaluasi Model Terbaik:
+   Mengevaluasi model terbaik menggunakan metrik akurasi dan classification report.
+5. Parameter Terbaik yang Ditemukan:
+   Menampilkan parameter terbaik yang ditemukan oleh GridSearchCV.
+   
 #### Parameter Terbaik:
-* n_estimators: 200
+* n_estimators: 100
 * max_depth: 10
 * min_samples_split: 2
+
+#### Kesimpulan
+Model Random Forest dengan hyperparameter tuning memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
 
 ### Kelebihan dan Kekurangan Algoritma:
 * Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
@@ -110,6 +150,3 @@ Untuk kasus klasifikasi ini, metrik evaluasi yang digunakan adalah akurasi, prec
 * Logistic Regression Accuracy: 0.79
 * Random Forest Accuracy: 0.98
 * Best Random Forest Accuracy setelah tuning: 0.98
-
-### Kesimpulan:
-Model Random Forest dengan hyperparameter tuning memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
