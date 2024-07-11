@@ -78,7 +78,7 @@ Logistic Regression adalah metode statistik yang digunakan untuk analisis predik
 
 #### Tahapan pembuatan model
 1. Inisialisasi Model:
-Kami menginisialisasi model Logistic Regression tanpa parameter khusus sebagai baseline.
+Menginisialisasi model Logistic Regression tanpa parameter khusus sebagai baseline.
 2. Pelatihan Model:
 Model dilatih menggunakan data training (X_train dan y_train).
 3. Prediksi:
@@ -96,7 +96,7 @@ Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree
 
 #### Tahapan pembuatan model
 1. Inisialisasi Model:
-   Kami menginisialisasi model Random Forest tanpa parameter khusus sebagai baseline.
+   Menginisialisasi model Random Forest tanpa parameter khusus sebagai baseline.
 2. Pelatihan Model:
    Model dilatih menggunakan data training (X_train dan y_train).
 3. Prediksi:
@@ -111,7 +111,7 @@ Random Forest adalah algoritma ensemble yang terdiri dari beberapa decision tree
 * min_samples_leaf: Jumlah minimum sampel yang diperlukan untuk berada di node daun.
 
 3. Hyperparameter Tuning : 
-Untuk meningkatkan performa model Random Forest, kami melakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
+Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beberapa hyperparameter menggunakan GridSearchCV. GridSearchCV membantu menemukan kombinasi terbaik dari hyperparameter dengan melakukan pencarian grid pada ruang parameter yang diberikan.
 
 #### Parameter yang Dicari:
 * n_estimators: Jumlah pohon keputusan dalam model Random Forest.
@@ -124,7 +124,7 @@ Untuk meningkatkan performa model Random Forest, kami melakukan tuning terhadap 
 2. Inisialisasi dan Pelatihan GridSearchCV:
    Menginisialisasi GridSearchCV dengan estimator Random Forest dan parameter grid yang telah ditentukan.
 3. Model Terbaik:
-   Setelah GridSearchCV selesai, kami mengambil model terbaik yang ditemukan.
+   Setelah GridSearchCV selesai, lalu mengambil model terbaik yang ditemukan.
 4. Evaluasi Model Terbaik:
    Mengevaluasi model terbaik menggunakan metrik akurasi dan classification report.
 5. Parameter Terbaik yang Ditemukan:
@@ -135,18 +135,29 @@ Untuk meningkatkan performa model Random Forest, kami melakukan tuning terhadap 
 * max_depth: 10
 * min_samples_split: 2
 
-#### Kesimpulan
-Model Random Forest dengan hyperparameter tuning memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
-
 ### Kelebihan dan Kekurangan Algoritma:
 * Logistic Regression: Mudah diinterpretasi, cepat, tetapi mungkin kurang akurat untuk data yang kompleks.
 * Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
 
 ## Evaluation
-### Metrik Evaluasi
-Untuk kasus klasifikasi ini, metrik evaluasi yang digunakan adalah akurasi, precision, recall, dan F1 score.
+Pada bagian ini, akan dijelaskan metrik evaluasi yang digunakan dan hasil proyek berdasarkan metrik evaluasi tersebut.
+
+### Metrik Evaluasi yang Digunakan
+Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
+* Akurasi (Accuracy): Akurasi adalah proporsi prediksi benar dari keseluruhan prediksi, dengan Formula: Akurasi = Jumlah Prediksi Benar / Jumlah Total Prediksi. Akurasi memberikan gambaran umum tentang seberapa baik model kita memprediksi kelas yang benar.
+* Precision: Precision adalah proporsi prediksi positif yang benar dari keseluruhan prediksi positif, dengan Formula: Precision = True Positives / True Positives + False Positives. Precision menunjukkan seberapa banyak dari prediksi positif yang benar-benar positif.
+* Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif, dengan Formula: Recall = True Positives / True Positives + False Negatives. Recall menunjukkan seberapa baik model kita dalam menangkap semua kasus positif.
+* F1 Score: F1 Score adalah harmonic mean dari precision dan recall, dengan Formula: F1 Score = 2 × (Precision × Recall / Precision + Recall). F1 Score memberikan keseimbangan antara precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
-* Logistic Regression Accuracy: 0.79
-* Random Forest Accuracy: 0.98
-* Best Random Forest Accuracy setelah tuning: 0.98
+Berikut adalah hasil proyek berdasarkan metrik evaluasi yang digunakan:
+* Logistic Regression Accuracy: 0.7951
+* Random Forest Accuracy: 0.9853
+* Best Random Forest Accuracy setelah tuning: 0.9853
+
+Dari hasil evaluasi di atas, dapat disimpulkan bahwa model Random Forest, terutama setelah hyperparameter tuning, memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Selain itu, nilai precision, recall, dan F1 Score yang tinggi menunjukkan bahwa model ini memiliki kinerja yang baik dalam mendeteksi kasus penyakit jantung secara akurat dan konsisten.
+
+### Kesimpulan
+Model Random Forest dengan hyperparameter tuning adalah model terbaik untuk prediksi penyakit jantung dalam proyek ini. Dengan akurasi yang tinggi dan metrik evaluasi lainnya yang memuaskan, model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
+
+Metrik evaluasi yang digunakan telah menunjukkan bahwa model ini tidak hanya akurat tetapi juga efisien dalam mendeteksi kasus positif dengan tingkat kesalahan yang minim, membuatnya alat yang andal untuk mendukung keputusan medis.
