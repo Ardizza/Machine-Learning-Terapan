@@ -144,21 +144,66 @@ Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai perform
 
 ### Metrik Evaluasi yang Digunakan
 Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
-* Akurasi (Accuracy): Akurasi adalah proporsi prediksi benar dari keseluruhan prediksi, dengan Formula: Akurasi = Jumlah Prediksi Benar / Jumlah Total Prediksi. Akurasi memberikan gambaran umum tentang seberapa baik model kita memprediksi kelas yang benar.
-* Precision: Precision adalah proporsi prediksi positif yang benar dari keseluruhan prediksi positif, dengan Formula: Precision = True Positives / True Positives + False Positives. Precision menunjukkan seberapa banyak dari prediksi positif yang benar-benar positif.
-* Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif, dengan Formula: Recall = True Positives / True Positives + False Negatives. Recall menunjukkan seberapa baik model kita dalam menangkap semua kasus positif.
-* F1 Score: F1 Score adalah harmonic mean dari precision dan recall, dengan Formula: F1 Score = 2 × (Precision × Recall / Precision + Recall). F1 Score memberikan keseimbangan antara precision dan recall.
-
+* Akurasi (Accuracy): Akurasi adalah proporsi prediksi benar dari keseluruhan prediksi
+  \[
+  \text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}
+  \]
+  
+* Precision: Precision adalah proporsi prediksi positif yang benar dari keseluruhan prediksi positif
+  \[
+  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+  \]
+  
+* Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif
+  \[
+  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+  \]
+  
+* F1 Score: F1 Score adalah harmonic mean dari precision dan recall
+  \[
+  \text{F1 Score} = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right)
+  \]
+  
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
 1. Logistic Regression:
    * Akurasi: 0.80
    * Precision:
         * Kelas 0: 0.85
         * Kelas 1: 0.76
+   * Recall
+        * Kelas 0: 0.72
+        * Kelas 1: 0.87
+   * F1 Score
+        * Kelas 0: 0.78
+        * Kelas 1: 0.81
+2. Random Forest
+   * Akurasi: 0.99
+   * Precision
+        * Kelas 0: 0.97
+        * Kelas 1: 1.00
+   * Recall
+        * Kelas 0: 1.00
+        * Kelas 1: 0.97
+   * F1 Score
+        * Kelas 0: 0.99
+        * Kelas 1: 0.99
+3. Best Random Forest setelah Hyperparameter Tuning
+   * Akurasi: 0.99
+   * Precision
+        * Kelas 0: 0.97
+        * Kelas 1: 1.00
+   * Recall
+        * Kelas 0: 1.00
+        * Kelas 1: 0.97
+   * F1 Score
+        * Kelas 0: 0.99
+        * Kelas 1: 0.99
+   
+### Diskusi Hasil
+Model Logistic Regression menunjukkan akurasi sebesar 0.80, dengan precision, recall, dan F1 score yang cukup baik untuk kedua kelas. Namun, model ini sedikit kurang dalam mendeteksi kelas normal dibandingkan kelas sakit, sebagaimana terlihat dari nilai recall yang lebih rendah pada kelas 0 (normal).
 
-Dari hasil evaluasi di atas, dapat disimpulkan bahwa model Random Forest, terutama setelah hyperparameter tuning, memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Selain itu, nilai precision, recall, dan F1 Score yang tinggi menunjukkan bahwa model ini memiliki kinerja yang baik dalam mendeteksi kasus penyakit jantung secara akurat dan konsisten.
+Di sisi lain, model Random Forest menunjukkan performa yang sangat baik dengan akurasi 0.99, precision, recall, dan F1 score yang hampir sempurna. Ini menunjukkan bahwa model Random Forest sangat efektif dalam mendeteksi kedua kelas (normal dan sakit).
 
-### Kesimpulan
-Model Random Forest dengan hyperparameter tuning adalah model terbaik untuk prediksi penyakit jantung dalam proyek ini. Dengan akurasi yang tinggi dan metrik evaluasi lainnya yang memuaskan, model ini direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
+Setelah melakukan hyperparameter tuning pada model Random Forest, performa tetap sama, yaitu akurasi sebesar 0.99 dengan nilai precision, recall, dan F1 score yang sangat tinggi. Ini menunjukkan bahwa model Random Forest sudah optimal sebelum tuning.
 
-Metrik evaluasi yang digunakan telah menunjukkan bahwa model ini tidak hanya akurat tetapi juga efisien dalam mendeteksi kasus positif dengan tingkat kesalahan yang minim, membuatnya alat yang andal untuk mendukung keputusan medis.
+Dari hasil evaluasi ini, dapat disimpulkan bahwa model Random Forest, baik sebelum maupun setelah hyperparameter tuning, memberikan hasil terbaik dalam memprediksi penyakit jantung pada dataset ini. Model ini memiliki keunggulan dalam mendeteksi kedua kelas dengan sangat baik, sehingga sangat direkomendasikan untuk digunakan dalam aplikasi klinis untuk membantu deteksi dini penyakit jantung.
