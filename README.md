@@ -148,19 +148,13 @@ Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
   $$\text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}$$
   
 - Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
-  $$
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-  $$
+  $$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$
   
 * Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif
-  $$
-  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-  $$
+  $$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$
   
 * F1 Score: F1 Score adalah harmonic mean dari precision dan recall
-  $$
-  \text{F1 Score} = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right)
-  $$
+  $$\text{F1 Score} = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right)$$
   
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
 1. Logistic Regression:
