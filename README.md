@@ -140,7 +140,7 @@ Untuk meningkatkan performa model Random Forest, dilakukan tuning terhadap beber
 * Random Forest: Akurasi tinggi, robust terhadap overfitting, tetapi lebih kompleks dan membutuhkan lebih banyak waktu untuk pelatihan.
 
 ## Evaluation
-Pada bagian ini, akan dijelaskan metrik evaluasi yang digunakan dan hasil proyek berdasarkan metrik evaluasi tersebut.
+Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai performa model yang dikembangkan, yaitu akurasi, precision, recall, dan F1 score. Berikut penjelasan mengenai metrik yang digunakan dan hasil proyek berdasarkan metrik tersebut:
 
 ### Metrik Evaluasi yang Digunakan
 Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
@@ -150,10 +150,11 @@ Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
 * F1 Score: F1 Score adalah harmonic mean dari precision dan recall, dengan Formula: F1 Score = 2 × (Precision × Recall / Precision + Recall). F1 Score memberikan keseimbangan antara precision dan recall.
 
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
-Berikut adalah akurasi berdasarkan metrik evaluasi yang digunakan:
-* Logistic Regression Accuracy: 0.7951
-* Random Forest Accuracy: 0.9853
-* Best Random Forest Accuracy setelah tuning: 0.9853
+1. Logistic Regression:
+   * Akurasi: 0.80
+   * Precision:
+        * Kelas 0: 0.85
+        * Kelas 1: 0.76
 
 Dari hasil evaluasi di atas, dapat disimpulkan bahwa model Random Forest, terutama setelah hyperparameter tuning, memberikan akurasi terbaik dalam memprediksi penyakit jantung pada dataset ini. Selain itu, nilai precision, recall, dan F1 Score yang tinggi menunjukkan bahwa model ini memiliki kinerja yang baik dalam mendeteksi kasus penyakit jantung secara akurat dan konsisten.
 
