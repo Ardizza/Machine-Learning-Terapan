@@ -191,7 +191,7 @@ Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
         * Kelas 0: 0.99
         * Kelas 1: 0.99
    
-### Diskusi Hasil
+### Kesimpulan
 Model Logistic Regression menunjukkan akurasi sebesar 0.80, dengan precision, recall, dan F1 score yang cukup baik untuk kedua kelas. Namun, model ini sedikit kurang dalam mendeteksi kelas normal dibandingkan kelas sakit, sebagaimana terlihat dari nilai recall yang lebih rendah pada kelas 0 (normal).
 
 Di sisi lain, model Random Forest menunjukkan performa yang sangat baik dengan akurasi 0.99, precision, recall, dan F1 score yang hampir sempurna. Ini menunjukkan bahwa model Random Forest sangat efektif dalam mendeteksi kedua kelas (normal dan sakit).
