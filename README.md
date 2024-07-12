@@ -149,9 +149,9 @@ Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
   \text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}
   \]
   
-* Precision: Precision adalah proporsi prediksi positif yang benar dari keseluruhan prediksi positif
+- **Precision**: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
   \[
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+  \text{Precision} = \frac{TP}{TP + FP}
   \]
   
 * Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif
