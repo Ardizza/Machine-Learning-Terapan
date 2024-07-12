@@ -145,24 +145,24 @@ Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai perform
 ### Metrik Evaluasi yang Digunakan
 Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
 * Akurasi (Accuracy): Akurasi adalah proporsi prediksi benar dari keseluruhan prediksi
-  \[
+  $$
   \text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}
-  \]
+  $$
   
-- **Precision**: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
-  \[
-  \text{Precision} = \frac{TP}{TP + FP}
-  \]
+- Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
+  $$
+  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+  $$
   
 * Recall: Recall adalah proporsi prediksi positif yang benar dari keseluruhan data aktual positif
-  \[
+  $$
   \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-  \]
+  $$
   
 * F1 Score: F1 Score adalah harmonic mean dari precision dan recall
-  \[
+  $$
   \text{F1 Score} = 2 \times \left( \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} \right)
-  \]
+  $$
   
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
 1. Logistic Regression:
