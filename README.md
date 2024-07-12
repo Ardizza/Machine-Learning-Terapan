@@ -145,9 +145,7 @@ Pada bagian ini, kita menggunakan beberapa metrik evaluasi untuk menilai perform
 ### Metrik Evaluasi yang Digunakan
 Untuk kasus klasifikasi ini, digunakan empat metrik evaluasi utama:
 * Akurasi (Accuracy): Akurasi adalah proporsi prediksi benar dari keseluruhan prediksi
-  <p align="center">
-    <img src="https://latex.codecogs.com/png.latex?\text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}" />
-  </p>
+  $$\text{Akurasi} = \frac{\text{Jumlah Prediksi Benar}}{\text{Jumlah Total Prediksi}}$$
   
 - Precision: Proporsi prediksi positif yang benar dari keseluruhan prediksi positif.
   $$
